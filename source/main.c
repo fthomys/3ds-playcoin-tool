@@ -127,26 +127,26 @@ int menu_customcoins()
         }
         if (kDown & KEY_RIGHT)
         {
-            coins += 10;
+            coins ++;
             if (coins > 300) coins = 300;
             update_display = 1;
         }
         if (kDown & KEY_LEFT)
         {
-            coins -= 10;
+            coins --;
             if (coins < 0) coins = 0;
             update_display = 1;
         }
 
         if (kDown & KEY_UP)
         {
-            coins++;
+            coins += 10;
             if (coins > 300) coins = 300;
             update_display = 1;
         }
         if (kDown & KEY_DOWN)
         {
-            coins--;
+            coins -= 10;
             if (coins < 0) coins = 0;
             update_display = 1;
         }
@@ -277,7 +277,7 @@ int main()
 	gfxFlushBuffers();
 	gfxSwapBuffers();
 
-	filebuffer = (u8*)malloc(0x400000);
+	filebuffer = (u8*)malloc(filebuffer_maxsize);
 	if(filebuffer==NULL)
 	{
 		printf("Failed to allocate memory.\n");
